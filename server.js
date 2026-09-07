@@ -32,13 +32,18 @@ connectToDB()
 
 
 
+// pages routes
+app.get('/', (req,res) => {
+    res.render('homepage.ejs')
+})
 
+app.get('/cars', (req,res) => {
+    res.render('all-cars.ejs')
+})
 
-
-
-
-// Routes go here
-
+app.get('/cars/new', (req,res) => {
+    res.render('create-car.ejs')
+})
 
 
 app.listen(3000,()=>{
