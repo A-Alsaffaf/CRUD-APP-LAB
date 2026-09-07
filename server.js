@@ -4,6 +4,8 @@ const app = express() // creates a express application
 const dotenv = require("dotenv").config() //this allows me to use my .env values in this file
 const mongoose = require("mongoose")
 const Car = require('./models/Car')
+const morgan = require("morgan")
+const methodOverride = require('method-override')
 
 
 
@@ -13,6 +15,9 @@ const Car = require('./models/Car')
 // Middleware
 app.use(express.static('public')); //all static files are in the public folder
 app.use(express.urlencoded({ extended: false })); // this will allow us to see the data being sent in the POST or PUT
+app.use(morgan('dev'))
+app.use(methodOverride('_method'))
+
 
 
 
@@ -37,12 +42,31 @@ app.get('/', (req,res) => {
     res.render('homepage.ejs')
 })
 
-app.get('/cars', (req,res) => {
-    res.render('all-cars.ejs')
-})
-
 app.get('/cars/new', (req,res) => {
     res.render('create-car.ejs')
+})
+
+// route to create new car
+app.post('/cars/new', async (req,res) => {
+    req.body.isRegistered = Boolean(req.body.isRegistered)
+    console.log(req.body);
+    const createdCar = await Car.create({
+        make: req.body.make,
+        model: req.body.model,
+        year: req.body.year,
+        plateNumber: req.body.plateNumber,
+        engineType: req.body.engineType,
+        isRegistered: req.body.isRegistered,
+    })
+    res.redirect('/cars')
+})
+
+// route to read cars from DB
+app.get('/cars', async (req,res) => {
+    const getAllCars = await Car.find()
+    console.log(getAllCars);
+    
+    res.render('all-cars.ejs', {cars: getAllCars})
 })
 
 

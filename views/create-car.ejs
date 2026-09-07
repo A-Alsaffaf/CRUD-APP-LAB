@@ -6,6 +6,29 @@
     <title>Crete New Car</title>
 </head>
 <body>
+    <%- include('./partials/navbar')  %>
     <h1>Create New Car</h1>
+
+    <form action="/cars/new" method="post">
+        <label for="make">Make: </label>
+        <input id="make" type="text" name="make">
+
+        <label for="model">Model: </label>
+        <input type="text" id="model" name="model">
+
+        <label for="year">Year: </label>
+        <input type="number" id="year" name="year">
+
+        <label for="plateNumber">Plate NUmber: </label>
+        <input type="text" id="plateNumber" name="plateNumber">
+
+        <label for="engineType">Engine Type: </label>
+        <input type="text" id="engineType" name="engineType">
+
+        <label for="isRegistered">Registered: </label>
+        <input type="checkbox" id="isRegistered" name="isRegistered">
+
+        <button>Create New Car</button>
+    </form>
 </body>
 </html>

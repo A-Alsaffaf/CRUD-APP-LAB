@@ -6,6 +6,11 @@
     <title>All Cars</title>
 </head>
 <body>
+    <%- include('./partials/navbar')  %>
     <h1>All Cars</h1>
+
+    <% for( oneCar of cars) { %>
+            <p>Car Make: <%= oneCar.make %></p>
+    <% } %>
 </body>
 </html>
