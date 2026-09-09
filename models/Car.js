@@ -26,6 +26,9 @@ const carSchema = mongoose.Schema({
     engineType: {
         type: String,
         enum: ['V4','V6','V8','V10','V12','I4','I6','I8']
+    },
+    carImage: {
+        type: String
     }
 },{timestamps: true})
 

@@ -46,6 +46,11 @@ app.get('/cars/new', (req,res) => {
     res.render('create-car.ejs')
 })
 
+app.get('/cars/:carId/details' , async (req,res) => {
+    const foundCar = await Car.findById(req.params.carId)
+    res.render('car-details.ejs', {car: foundCar})
+})
+
 // route to create new car
 app.post('/cars/new', async (req,res) => {
     req.body.isRegistered = Boolean(req.body.isRegistered)

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details Page</title>
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+    <%- include('./partials/navbar')  %>
+    
+    <h1>Details Page for <%= car.make %> <%= car.model %></h1>
+
+    <div class="details-container">
+        <div class="car-details">
+            <p><b>Car Make:</b> <%= car.make %></p>
+            <p><b>Car Model:</b> <%= car.model %></p>
+            <p><b>Car Year:</b> <%= car.year %></p>
+            <p><b>Plate Number:</b> <%= car.plateNumber %></p>
+            <p><b>Engine Type:</b> <%= car.engineType %></p>
+            <% if (car.isRegistered == false) { %>
+                <p><b>Registeration Status: </b>Not Registered</p>
+            <% } else if (car.isRegistered === true) { %>
+                <p><b>Registeration Status: </b>Registered</p>
+            <% } %>
+
+            <div class="form-buttons">
+                <form action="/cars/<%= car._id %>/update" method="get">
+                <button>
+                    Update Details 
+                </button>
+                </a>
+                </form>
+
+                <form action="/cars/<%= car._id%>?_method=DELETE" method="post" onsubmit="return confirm('Are you sure you want to delete this car?')" >
+                    <button type="submit">Delete Car</button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="car-img-div">
+            <img src="<%= car.carImage %>" alt=" image for <%= car.make  %> <%= car.model %>">
+        </div>
+    </div>
+</body>
+</html>

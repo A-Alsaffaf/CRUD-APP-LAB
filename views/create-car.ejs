@@ -4,31 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crete New Car</title>
+    <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
     <%- include('./partials/navbar')  %>
     <h1>Create New Car</h1>
 
-    <form action="/cars/new" method="post">
-        <label for="make">Make: </label>
-        <input id="make" type="text" name="make">
 
-        <label for="model">Model: </label>
-        <input type="text" id="model" name="model">
+        <form action="/cars/new" method="post">
+            <div class="form-input-section">
+                <label for="make">Make: </label>
+                <input id="make" type="text" name="make">
 
-        <label for="year">Year: </label>
-        <input type="number" id="year" name="year">
+                <label for="model">Model: </label>
+                <input type="text" id="model" name="model">
 
-        <label for="plateNumber">Plate NUmber: </label>
-        <input type="text" id="plateNumber" name="plateNumber">
+                <label for="year">Year: </label>
+                <input type="number" id="year" name="year">
 
-        <label for="engineType">Engine Type: </label>
-        <input type="text" id="engineType" name="engineType">
+                <label for="plateNumber">Plate NUmber: </label>
+                <input type="text" id="plateNumber" name="plateNumber">
 
-        <label for="isRegistered">Registered: </label>
-        <input type="checkbox" id="isRegistered" name="isRegistered">
+                <label for="engineType">Engine Type: </label>
+                <input type="text" id="engineType" name="engineType">
 
-        <button>Create New Car</button>
-    </form>
+                <label for="carImage">Car Img URL: </label>
+                <input type="text" id="carImage" name="carImage">
+
+                <div class="reg-input">
+                    <label for="isRegistered">Registered: </label>
+                    <input type="checkbox" id="isRegistered" name="isRegistered">
+                </div>
+
+                <button>Create New Car</button>
+            </div>
+        </form>
+    
 </body>
 </html>

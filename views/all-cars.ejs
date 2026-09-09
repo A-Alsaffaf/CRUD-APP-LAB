@@ -22,15 +22,11 @@
             <% } else if (oneCar.isRegistered === true) { %>
                 <p><b>Registeration Status: </b>Registered</p>
             <% } %>
-            <a href="/cars/<%= oneCar._id %>/update">
+            <a href="/cars/<%= oneCar._id %>/details">
             <button>
-                Update Car
+                View Car Details
             </button>
             </a>
-
-            <form action="/cars/<%= oneCar._id%>?_method=DELETE" method="post">
-                <button>Delete Car</button>
-            </form>
         </div>
     <% } %>
     </div>
