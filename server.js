@@ -49,7 +49,7 @@ app.get('/cars/new', (req,res) => {
 // route to create new car
 app.post('/cars/new', async (req,res) => {
     req.body.isRegistered = Boolean(req.body.isRegistered)
-    console.log(req.body);
+    // console.log(req.body);
     const createdCar = await Car.create({
         make: req.body.make,
         model: req.body.model,
@@ -64,7 +64,7 @@ app.post('/cars/new', async (req,res) => {
 // route to read cars from DB
 app.get('/cars', async (req,res) => {
     const getAllCars = await Car.find()
-    console.log(getAllCars);
+    // console.log(getAllCars);
     
     res.render('all-cars.ejs', {cars: getAllCars})
 })
@@ -76,7 +76,14 @@ app.get('/cars/:carId/update', async (req,res) => {
 })
 
 // route to update car details form
-app.put()
+app.put('/cars/:carId', async (req,res) => {
+    req.body.isRegistered = Boolean(req.body.isRegistered)
+    console.log('The Updated Car Body is: ')
+    console.log(req.body);
+    const updatedCar = await Car.findByIdAndUpdate(req.params.carId, req.body)
+    res.redirect('/cars')
+})
+
 
 
 app.listen(3000,()=>{
