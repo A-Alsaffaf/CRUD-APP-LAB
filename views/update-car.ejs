@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Car Details</title>
+</head>
+<body>
+    <h1>Update Car Details</h1>
+
+        <form action="/cars/<%= car._id %>?_method=PUT" method="post">
+        <label for="make">Make: </label>
+        <input id="make" type="text" name="make" value="<%= car.make %>">
+
+        <label for="model">Model: </label>
+        <input type="text" id="model" name="model" value="<%= car.model %>">
+
+        <label for="year">Year: </label>
+        <input type="number" id="year" name="year" value="<%= car.year %>">
+
+        <label for="plateNumber">Plate NUmber: </label>
+        <input type="text" id="plateNumber" name="plateNumber" value="<%= car.plateNumber %>">
+
+        <label for="engineType">Engine Type: </label>
+        <input type="text" id="engineType" name="engineType" value="<%= car.engineType %>">
+
+        <label for="isRegistered">Registered: </label>
+        <input type="checkbox" id="isRegistered" name="isRegistered" <% if (car.isRegistered) {%>checked<%} %> >
+
+        <button>Create New Car</button>
+    </form>
+</body>
+</html>

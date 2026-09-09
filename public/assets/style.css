@@ -1,0 +1,13 @@
+.cars-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: aquamarine;
+    padding: 10px;
+}
+
+.cars-container div {
+    background-color: blueviolet;
+    border: solid;
+    border-color: black;
+    text-align: center;
+}

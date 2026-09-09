@@ -4,13 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Cars</title>
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
     <%- include('./partials/navbar')  %>
     <h1>All Cars</h1>
-
+    <div class="cars-container">
     <% for( oneCar of cars) { %>
-            <p>Car Make: <%= oneCar.make %></p>
+        <div class="car-box">
+            <p><b>Car Make:</b> <%= oneCar.make %></p>
+            <p><b>Car Model:</b> <%= oneCar.model %></p>
+            <p><b>Car Year:</b> <%= oneCar.year %></p>
+            <p><b>Plate Number:</b> <%= oneCar.plateNumber %></p>
+            <p><b>Engine Type:</b> <%= oneCar.engineType %></p>
+            <% if (oneCar.isRegistered) { %>
+                <p><b>Registeration Status: </b> Registered</p>
+            <% } else { %>
+                <p><b>Registeration Status: </b> Not Registered</p>
+            <% } %>
+            <a href="/cars/<%= oneCar._id %>/update">
+            <button>
+                Update Car
+            </button>
+            </a>
+
+            <a href="/cars/<%= oneCar._id%>/?_method=DELETE">
+                <button>
+                    Delete Car
+                </button>
+            </a>
+            
+        </div>
     <% } %>
+    </div>
 </body>
 </html>

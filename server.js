@@ -69,6 +69,15 @@ app.get('/cars', async (req,res) => {
     res.render('all-cars.ejs', {cars: getAllCars})
 })
 
+// route to the page for Updating the car details 
+app.get('/cars/:carId/update', async (req,res) => {
+    const foundCar = await Car.findById(req.params.carId)
+    res.render('update-car.ejs', {car: foundCar})
+})
+
+// route to update car details form
+app.put()
+
 
 app.listen(3000,()=>{
     console.log("Listening on port " + 3000)
