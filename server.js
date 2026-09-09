@@ -84,6 +84,10 @@ app.put('/cars/:carId', async (req,res) => {
     res.redirect('/cars')
 })
 
+app.delete('/cars/:carId', async (req, res) => {
+    const deletedCar = await Car.findByIdAndDelete(req.params.carId)
+    res.redirect('/cars')
+})
 
 
 app.listen(3000,()=>{

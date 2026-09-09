@@ -20,7 +20,7 @@ const carSchema = mongoose.Schema({
         maxLength: 8
     },
     isRegistered: {
-        type: String,
+        type: Boolean,
         required: true
     },
     engineType: {

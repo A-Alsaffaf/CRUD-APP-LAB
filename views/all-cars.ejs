@@ -17,10 +17,10 @@
             <p><b>Car Year:</b> <%= oneCar.year %></p>
             <p><b>Plate Number:</b> <%= oneCar.plateNumber %></p>
             <p><b>Engine Type:</b> <%= oneCar.engineType %></p>
-            <% if (oneCar.isRegistered) { %>
-                <p><b>Registeration Status: </b> Registered</p>
-            <% } else { %>
-                <p><b>Registeration Status: </b> Not Registered</p>
+            <% if (oneCar.isRegistered == false) { %>
+                <p><b>Registeration Status: </b>Not Registered</p>
+            <% } else if (oneCar.isRegistered === true) { %>
+                <p><b>Registeration Status: </b>Registered</p>
             <% } %>
             <a href="/cars/<%= oneCar._id %>/update">
             <button>
@@ -28,12 +28,9 @@
             </button>
             </a>
 
-            <a href="/cars/<%= oneCar._id%>?_method=DELETE">
-                <button>
-                    Delete Car
-                </button>
-            </a>
-            
+            <form action="/cars/<%= oneCar._id%>?_method=DELETE" method="post">
+                <button>Delete Car</button>
+            </form>
         </div>
     <% } %>
     </div>
